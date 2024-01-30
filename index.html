@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-scrolll-dir-x="0" data-scrolldir-y="1" class="fontawesome-12svg-active fontawesome-12svg-complete" style="--scroll-bar:0;">
 
 <head>
     <meta charset="UTF-8">
     <title>Wendarius McQueen's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="website icon" type="jpg" href="McQueen.jpg">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu&family=Antonio:wght@200&family=Electrolize&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu&family=Electrolize&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/qpj0eya.css">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: Electrolize, serif;
-            font-size: 15px;
-            text-align: left;
             background-color: #040204;
             margin: 0;
             padding: 0;
@@ -41,16 +41,36 @@
             overflow: hidden;
             border-bottom: none;
             border-color: #0bf817;
-            margin-bottom: -10px;
+            z-index: 2;
         }
 
         .navbar a {
             float: left;
-            display: block;
+            display: flex;
             color: #0bf817;
-            text-align: center;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
         }
 
+        .navbar a:hover {
+            color: whitesmoke;
+        }
+
+        .navbar a::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 0;
+            background-color: #0bf817;
+            transition: width 0.3s ease, left 0.3s ease;
+            bottom: -2px;
+            position: absolute;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
         .navbar-logo {
             float: left;
             margin-top: 10px;
@@ -65,6 +85,7 @@
         .navbar-links {
             float: right;
             margin-top: 30px;
+            margin-right: 20px;
         }
 
         .navbar-links a {
@@ -80,9 +101,15 @@
             background-color: #040204;
             color: #0bf817;
             text-align: center;
-            padding: 5px 0;
-            border: groove #0bf817a1;
+            padding: 10px;
+            border: 3px solid #0bf817a1;
+            border-image: linear-gradient(#106214a1, #6bf272a1, #0bf817a1) 1;
+            animation: anim-border 5s ease-in infinite;
             margin-top: auto;
+        }
+
+        @keyframes anim-border {
+            50%{border-image: linear-gradient(360deg, #106214a1, #6bf272a1, #0bf817a1)1;}
         }
 
         span {
@@ -105,7 +132,7 @@
         }
 
         .gif-container {
-            width: 35%;
+            width: 45%;
             height: 350px;
             float: right;
             background: url('https://i.imgur.com/E5gN1eK.gif') center/cover no-repeat;
@@ -113,18 +140,17 @@
             justify-content: center;
             align-items: center;
             margin: auto;
-            left: 90%;
-            border-radius: 80%;
+            border-radius: 50%; 
             overflow: hidden;
+            position: relative;
         }
 
         .overlay-image {
             position: absolute;
-            top: 34%;
-            left: 83.2%;
+            top: 60%;
+            left: 50%;
             transform: translate(-50%, -50%);
             width: 200px;
-            height: auto;
         }
 
 
@@ -133,29 +159,134 @@
             font-family: "brevia", sans-serif;
         }
 
-        h3 {
+        h2 {
             font-family: "brevia", sans-serif;
-            font-size: 25px;
-            margin-top: -20px;
+            margin-top: -30px;
             margin-left: 140px;
             color: white;
+            white-space: nowrap;
+            letter-spacing: 2px;
+            border-right: 2px solid white;
+            padding-right: 2px;
+            overflow: hidden;
+            animation: blink_cursor 0.10s step-end infinite, type_effect 3.5s steps(26, end) 1;
+            animation-delay: 0.2s;
+        }
+
+            @keyframes blink_cursor {
+            0%{ border-right: 2px solid white; }
+            100% { border-right: transparent; }
+            0%, 100% { width: 100%; }
+        }
+
+            @keyframes type_effect {
+            0% { width: 0%; }
+            100% { width: 45%; }
         }
 
         h4 {
             font-family: "brevia", sans-serif;
             color: white;
             font-size: 20px;
-            margin-left: 10px;
-            margin-top: 20px;
+            margin: 30px;
         }
 
         article {
-            margin: 30px;
+            padding: 50px;
             font-family: "brevia", sans-serif;
             font-size: 18px;
-            color: white
+            color: white;
         }
+
+        #scrollToBottom {
+            position: relative;
+            padding: 50px;
+            text-align: center;
+            font-family: "Electrolize", sans-serif;
+            font-size: 30px;
+            text-decoration: none;
+            color: white;
+        }
+
+        #scrollArrow {
+            position: fixed;
+            top: -50px;
+            left: 50%; 
+            font-size: 22px;
+            cursor: pointer;
+            color: #0bf817;
+            text-decoration: none;
+            transition: top 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgb(13, 13, 13);
+        }
+
+        #scrollArrow:hover {
+            box-shadow: 0 0 20px rgb(11, 248, 23, 0.9); /* Glow effect on hover */
+        }
+        
+        .showcase {
+            position: relative;
+            margin-top: 40vh;
+            margin-left: 30px;
+        }
+
+        .showcase video {
+            width: 100%;
+            height: 70vh;
+            position: absolute;
+            object-fit: cover;
+            margin-left: auto;
+        }
+
+        .title {
+            width: 100%;
+            height: 80vh;
+            background-color: #040204;
+            font-family: "Carter One", sans-serif;
+            font-size: 250px;
+            color: white;
+            margin: auto;
+            mix-blend-mode: darken;
+            text-align: center;
+            }
+
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('scrollToBottom').addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent the default behavior of the anchor link
+
+                // Scroll smoothly to the very bottom of the page
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            });
+
+            var scrollArrow = document.getElementById('scrollArrow');
+
+            document.addEventListener('scroll', function() {
+                // Show the arrow when the user scrolls past a certain point
+                if (window.scrollY > window.innerHeight) {
+                    scrollArrow.style.top = '20px'; // Adjust the desired position
+                } else {
+                    scrollArrow.style.top = '-50px'; // Hide the arrow above the top of the screen
+                }
+            });
+
+            scrollArrow.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent the default behavior of the arrow link
+
+                // Scroll smoothly to the very top of the page
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
 </head>
 
 <nav>
@@ -167,37 +298,53 @@
         </div>
         <div class="navbar-links">
             <a href="aboutme.html">About Me</a>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
             <a href="index.html">Home</a>
         </div>
     </div>
 </nav>
+
 <body>
     <div class="content-container">
         <div class="text-content">
             <h1>
                 <p><span>Hello, I am <u><em>Wendarius McQueen</em></u></span></p>
             </h1>
-            <h3>
-                <p><em>Amateur Web Developer</em></p>
-            </h3>
-                <h4>
-                    <p> "Eager to embark on an aspiring career, I bring a blend <br> of <span><em>creativity</em></span> and <span><em>technical skills</em></span> to turn ideas into <span><em>visually <br> appealing</em></span> and <span><em>functional</em></span> web solutions"</p>
-                </h4>
+            
+            <h2 class="typing-effect">
+                <p><em>Creative Web Developer</em></p>
+            </h2>
+                
+            <h4>
+                <p> "Eager to embark on an aspiring career, I bring a blend <br> of <span><em>creativity</em></span> and <span><em>technical skills</em></span> to turn ideas into <span><em>visually <br> appealing</em></span> and <span><em>functional</em></span> web solutions"</p>
+            </h4>
+            
         </div>
+
         <div class="gif-container">
             <img class="overlay-image" src="Portfolio.png" alt="Portfolio">
         </div>
     </div>
+    
 </body>
 
 <article>
-        <p><b>Welcome to my <span>first</span> portfolio website! I am a <span>senior</span> at Auburn University, set to graduate in <span>Spring 2024</span> with a Bachelor of Science in <span>Computer Science</span>. This website, crafted using VS Code and skills acquired from platforms such as Skillcrush, showcases my proficiency in <span>HTML</span>, <span>C++</span>, and <span>Java</span>. As you explore the webpage, feel free to reach out with comments or proposals via the <span>'Contact'</span> button above. Thank you for visiting my portfolio powered by <span><em>McQueen Matrix</em></span>!</b></p>
+        <p><b>Welcome to my <span>first</span> portfolio website! I am a <span>senior</span> at Auburn University, set to graduate in <span>Spring 2024</span> with a Bachelor of Science in <span>Computer Science</span>. This website, crafted using VS Code and skills acquired from platforms such as Skillcrush, showcases my proficiency in <span>HTML</span>, <span>C++</span>, and <span>Java</span>. As you explore the webpage, feel free to reach out with comments or proposals via the <span>'Contact'</span> button above!</b></p>
 </article>
+
+<a href="#bottom" id="scrollToBottom">Click Here!</a>
+
+<a href="#top" id="scrollArrow">↑</a>
+<section class="showcase">
+    <video src="galaxy.mp4" autoplay loop muted></video>
+    <h1 class="title">McQueen Matrix</h1>
+</section>
+
 
 <footer>
     <p>&copy;2024 McQueen Matrix. All Rights Reserved.</p>
 </footer>
 
 </html>
+

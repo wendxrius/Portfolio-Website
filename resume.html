@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-scrolll-dir-x="0" data-scrolldir-y="1" class="fontawesome-12svg-active fontawesome-12svg-complete" style="--scroll-bar:0;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wendarius McQueen's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="jpg" href="McQueen.jpg">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Carter+Ones&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/qpj0eya.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Electrolize, serif;
+            background-color: #040204;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #040204;
+            color: #0bf817;
+            text-align: center;
+            font-family: Electrolize, sans-serif;
+            font-size: 11px;
+            font-variant: small-caps;
+            margin-bottom: 10px;
+            margin-left: 8px;
+        }
+
+        .navbar {
+            font-family: Electrolize;
+            font-size: 18px;
+            background-color: #040204;
+            overflow: hidden;
+            border-bottom: none;
+            border-color: #0bf817;
+        }
+
+        .navbar a {
+            float: left;
+            display: flex;
+            color: #0bf817;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: whitesmoke;
+        }
+
+        .navbar a::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 0;
+            background-color: #0bf817;
+            transition: width 0.3s ease, left 0.3s ease;
+            bottom: -2px;
+            position: absolute;
+
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        .navbar-logo {
+            float: left;
+            margin-top: 10px;
+            margin-left: 3px;
+        }
+
+        .navbar-logo img {
+            height: 70px;
+            width: 70px;
+        }
+
+        .navbar-links {
+            float: right;
+            margin-top: 30px;
+        }
+
+        .navbar-links a {
+            font-family: Electrolize;
+            margin-right: 70px;
+            text-decoration: none;
+        }
+
+        footer {
+            font-family: Electrolize, sans-serif;
+            font-size: 18px;
+            font-variant: small-caps;
+            background-color: #040204;
+            color: #0bf817;
+            text-align: center;
+            padding: 10px;
+            border: 3px solid #0bf817a1;
+            border-image: linear-gradient(#106214a1, #6bf272a1, #0bf817a1 ) 1;
+            animation: anim-border 5s ease-in infinite;
+            margin-top: auto;
+        }
+
+        @keyframes anim-border {
+            50%{border-image: linear-gradient(360deg, #106214a1, #6bf272a1, #0bf817a1  )1;}
+        }
+
+        span {
+            font-family: "brevia", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            color: #0bf817;
+            font-weight: bold;
+        }
+
+        button {
+            display: flexbox;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-family: Electrolize, sans-serif;
+            cursor: pointer;
+            background-color: #0bf817;
+            color: #040204;
+            border: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            margin-right: 60px;
+            float: right;
+            box-shadow: 0 0 5px #0bf817, 0 0 25px #0bf817;
+            transition: 0.7s;
+        }
+
+        button:hover {
+            box-shadow: 0 0 5px #0bf817,
+            0 0 25px #0bf817, 0 0 50px #0bf817,
+            0 0 100px #0bf817
+        }
+
+
+        h1 {
+            font-size: 80px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+            position:relative;
+            display: inline-block;
+            text-align: center;
+            font-family: Carter One, sans-serif;
+        }
+
+        h1::before,
+        h1::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            transition: 0.3s ease-out;
+        }
+
+        h1:hover::before {
+            color: #106214;
+            transform: translate(12px, -12px);
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #040204;
+        }
+
+        h1:hover::after {
+            color:#0bf817;
+            transform: translate(24px, -24px);
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #040204;
+        }
+
+        article {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-family: "brevia", sans-serif;
+            font-size: 18px;
+            color: white
+        }
+
+    </style>
+</head>
+
+<nav>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <a href="index.html">
+            <img src="McQueen.jpg" alt="Logo">
+            </a>
+        </div>
+        <div class="navbar-links">
+            <a href="aboutme.html">About Me</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+            <a href="index.html">Home</a>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <a href="Wendarius McQueen Resume copy.docx.pdf" target="_blank">
+        <button>Resume</button>
+    </a>
+
+    <h1 data-text="Involvement">Involvement</h1>
+
+    <article>
+        <p><ul><b><u><em>National Society of Black Engineers</em></u> (NSBE): I held the <span>Telecommunications Committee</span> position during my freshman year in Auburn. In this position, my duties were to <span>contact</span> academic sponsors to see if they would like to speak to our organizations in regards to their companies and provide some helpful <span>resources</span> for our members. In this position, I was also able to assist in gathering data for a <span>Test Bank</span> for students to utilize as a <span>studying resource</span> for their courses.  </b></ul><br>
+            <ul><b><u><em>Black Student Union</em></u> (BSU): I held the <span>Academic Success Director</span> during my time at Auburn. In this position, I was able to <span>orchestrate</span> study nights for students to participate in and enjoy a <span>safe space</span> for them to do their homework as well as study for any upcoming exams. My committee was also able to supply these events with academic resources, such as <span>tutors</span>, to assist students with any issues they may have about their courses. In this role, I was able to <span>design</span> and <span>model</span> flyers for our social media team to publish on our Instagram page. In these flyers, my committee was able to gather information, resources, and <span>career-ready tips</span> that can help develop our students to succeed <span>academically</span> and prepare for life after college. This role has helped me become more aware of the <span>importance</span> of a diverse safe space for people of the minority in this kind of institution. </b></ul><br>
+            <ul><b><u><em>Emerge at Auburn</em></u>: In this program, students can receive <span>effective</span> leadership development opportunities to help them <span>refine</span> their skills to lead on campus and beyond. This program allowed me to learn more about what it means to be a <span>leader</span> along with some key traits that can aid me in helping those around me. It was a great chance to interact with other students at Auburn as well as <span>network</span> with faculty and staff members. </b></ul><br>
+            <ul><b><u><em>Tiger Excellence Scholar's Program</em></u>: This scholarship program is designated for <span>first-year generational students</span>. My brother and I are the first in my family to go to a four-year college and experience life far away from home. Knowing very little about college life, coming to Auburn was a different <span>atmosphere</span> for me so joining this program definitely helped me get to know more students who have similar <span>backgrounds</span> as me. This program also does a phenomenal job of teaching different <span>cultures</span> and <span>traditions</span> to their scholarship recipients. So, this program has made a <span>positive</span> impact on my views of college now and how to collaborate with other individuals of <span>diverse backgrounds</span>. </b></ul><br>
+            <ul><b><u><em>Greater Alabama Black Belt Region, Louis Stokes Alliance for Minority Participation</em></u> (LSAMP): This program is for students seeking a degree in the <span>STEM</span> field and provides them with some <span>mentorship</span> as well as academic resources to help prepare them for their respective careers. Members are invited to <span>participate</span> in different events such as conferences to <span>connect</span> with students from other college institutions. This was a great way for me to meet people who may have taken similar courses and provide some <span>useful</span> tips. </b></ul><br>
+    </article>
+</body>
+<footer>
+    <p>&copy;2024 McQueen Matrix. All Rights Reserved.</p>
+</footer>
+
+</html>
+
